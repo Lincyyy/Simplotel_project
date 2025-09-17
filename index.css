@@ -77,6 +77,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: start;
+  height:100vh;
   padding: 6vw;
 }
 
@@ -255,6 +256,7 @@ main {
 
   .header .title {
     padding: 10vw;
+    height:auto;
   }
 
   h1 {
