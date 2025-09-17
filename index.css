@@ -1,13 +1,13 @@
 @font-face {
   font-family: "TT Norms Pro";
-  src: url("./tt-norms-pro/TT\ Norms\ Pro\ Bold.otf") format("truetype");
+  src: url("./tt-norms-pro/TT Norms Pro Bold.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "TT Norms Pro Regular";
-  src: url("./tt-norms-pro/TT\ Norms\ Pro\ Regular.otf") format("truetype");
+  src: url("./tt-norms-pro/TT Norms Pro Regular.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -38,6 +38,7 @@ body {
   align-items: center;
   padding: 0 120px;
   position: relative;
+  gap: 20px;
 }
 
 .navbar ul {
@@ -62,8 +63,18 @@ body {
 .navbar img {
   width: 40px;
   height: 40px;
-  margin-left: 40px;
   cursor: pointer;
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+#menu-toggle {
+  display: none;
 }
 
 .header {
@@ -121,8 +132,8 @@ h1 {
 
 .section-1 {
   width: 100%;
-  min-height: 100vh; 
-  background: linear-gradient(90deg, #fff6ad, #ffd1d2); 
+  min-height: 100vh;
+  background: linear-gradient(90deg, #fff6ad, #ffd1d2);
   display: flex;
   flex-direction: column;
 }
@@ -202,13 +213,8 @@ main {
   top: 5px;
   margin-left: 5px;
 }
-  
-  #menu-toggle {
-    display: none;
-  }
-/* media queries */
 
-
+/* Media Queries */
 @media (max-width: 990px) {
   .navbar {
     padding: 0 75px;
@@ -237,44 +243,42 @@ main {
 
   .navbar {
     justify-content: flex-end;
-    padding: 0;
+    padding: 0 20px;
     position: relative;
   }
 
-  
   .navbar ul {
-    display: none;
+    display: none; 
     flex-direction: column;
     position: absolute;
-    top: 66px; 
+    top: 66px;
     right: 0;
     background-color: var(--primary-color);
     width: 100%;
     z-index: 10;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+    padding: 0;
   }
 
-  
-  #menu-toggle:checked + .menu-icon + ul,
-  #menu-toggle:checked + ul {
+  #menu-toggle:checked ~ ul {
     display: flex;
+    max-height: 400px;
+    padding: 20px 0;
   }
 
- 
+  .navbar ul li {
+    padding: 12px 20px;
+    text-align: center;
+  }
+
   .menu-icon {
-    cursor: pointer;
-    margin-right: 50px;
-    display: flex;
-    align-items: center;
+    margin-right: 20px;
   }
-
-
 
   h1 {
     font-size: 36px;
-  }
-
-  .navbar img {
-    margin-right: 50px;
   }
 
   .header {
@@ -302,7 +306,6 @@ main {
   }
 }
 
-
 @media (max-width: 475px) {
   .images,
   .desc {
@@ -319,14 +322,6 @@ main {
 }
 
 @media (max-width: 426px) {
-  .logo {
-    left: 30px;
-  }
-
-  .navbar p {
-    left: 30px;
-  }
-
   .navbar img {
     margin-right: 20px;
   }
